@@ -38,27 +38,44 @@ def build_dp_table(alphabet_values, string_a, string_b):
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1])
     return dp
 
+def get_optimal_subsequence(dp, string_a, string_b):
+    i = len(string_a)
+    j = len(string_b)
+    subsequence = []
+
+    while i > 0 and j > 0:
+        if string_a[i-1] == string_b[j-1]:
+            # characters match, so part of the subsequence
+            subsequence.append(string_a[i-1])
+            i -= 1
+            j -= 1
+        elif dp[i-1][j] > dp[i][j-1]:
+            # larger value came from i side
+            i -= 1
+        else:
+            # larger value came j side
+            j -= 1
+
+    # need to reverse and join
+    return "".join(reversed(subsequence))
+
 def main():
     alphabet_values, string_a, string_b = read_input()
     
     if not alphabet_values:
         return
 
-    
-
-
-    # test statements to check parsing
-    print(f"Alphabet Values: {alphabet_values}")
-    print(f"String A: {string_a}")
-    print(f"String B: {string_b}")
-
-    # todo - implement DP table using variables
-
     #Building the table
     dp_table = build_dp_table(alphabet_values, string_a, string_b)
     #Get Max Value
     max_value = dp_table[-1][-1]
-    print(f"Maximum Value: {max_value}")
+
+    # Get optimal string
+    optimal_string = get_optimal_subsequence(dp_table, string_a, string_b)
+
+    # print output (max value followed by optimal string)
+    print(max_value)
+    print(optimal_string)
 
 if __name__ == "__main__":
     main()
