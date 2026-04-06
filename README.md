@@ -3,8 +3,8 @@
 # Highest Value Longest Common Sequence (HVLCS)
 
 ## Team Members
-* Carlo Fraley - UFID: [Your UFID]
-* Kavi Patel - UFID: [Partner UFID]
+* Carlo Fraley - UFID in canavs comment
+* Kavi Patel - UFID in canvas comment
 
 ## Execution Instructions
 * **Prerequisites:** Python 3
