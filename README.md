@@ -8,7 +8,16 @@
 
 ## Execution Instructions
 * **Prerequisites:** Python 3
-* **Run:** `python src/hvlcs.py < data/example.in`
+
+* Windows:
+```powershell
+python src/hvlcs.py < data/example.in
+```
+
+* Mac:
+```bash
+python3 src/hvlcs.py < data/example.in
+```
 
 ## Assumptions
 * Input files will follow the format order of alphabet size, character value mappings, then the two strings.
